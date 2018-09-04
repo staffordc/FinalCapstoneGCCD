@@ -29,5 +29,7 @@ namespace FinalCapstoneGCCD.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<FinalCapstoneGCCD.Domain.Models.Car> Cars { get; set; }
     }
 }

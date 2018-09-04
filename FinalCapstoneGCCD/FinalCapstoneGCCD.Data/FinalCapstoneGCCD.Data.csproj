@@ -41,6 +41,8 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Entity.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,6 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FinalCapstoneGCCDContext.cs" />
+    <Compile Include="FinalCapstoneGCCDInitializer.cs" />
     <Compile Include="Maps\CarMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
