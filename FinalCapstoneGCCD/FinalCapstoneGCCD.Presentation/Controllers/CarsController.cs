@@ -1,5 +1,5 @@
 ﻿using FinalCapstoneGCCD.Presentation.Clients;
-using FinalCapstoneGCCD.Presentation.Data.Models;
+using FinalCapstoneGCCD.Presentation.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,14 +17,14 @@ namespace FinalCapstoneGCCD.Presentation.Controllers
             _carClient = new CarClient();
         }
         // GET: Cars
-        public ActionResult Index()
+        public ActionResult SearchCars()
         {
             return View();
         }
-        public async Task<ActionResult> GetCar(CarViewModel car)
+        public async Task<ActionResult> Results(string make = null, string model = null, int year = 0, string color = null)
         {
-            var car1 = await _carClient.GetCar(car.Make, car.Model, car.Year, car.Color);
-            return View(car1);
+            var cars = await _carClient.GetCar(make, model, year, color);
+            return View();
         }
     }
 }

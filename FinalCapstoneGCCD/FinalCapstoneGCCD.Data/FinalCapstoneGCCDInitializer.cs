@@ -8,7 +8,7 @@ using FinalCapstoneGCCD.Domain.Models;
 
 namespace FinalCapstoneGCCD.Data
 {
-    public class FinalCapstoneGCCDInitializer : DropCreateDatabaseAlways<FinalCapstoneGCCDContext>
+    public class FinalCapstoneGCCDInitializer : DropCreateDatabaseIfModelChanges<FinalCapstoneGCCDContext>
     {
         protected override void Seed(FinalCapstoneGCCDContext context)
         {

@@ -166,6 +166,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CarViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -207,11 +208,11 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Cars\Results.cshtml" />
+    <Content Include="Views\Cars\SearchCars.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
-    <Folder Include="Views\Cars\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -230,10 +231,6 @@
     <ProjectReference Include="..\FinalCapstoneGCCD.Domain\FinalCapstoneGCCD.Domain.csproj">
       <Project>{64AF2E78-1DB5-4A05-9F8D-026621C26F72}</Project>
       <Name>FinalCapstoneGCCD.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FinalCapstoneGCCD.Presentation.Domain\FinalCapstoneGCCD.Presentation.Domain.csproj">
-      <Project>{1CE01354-D749-4DCA-AA89-E438A7D41C0D}</Project>
-      <Name>FinalCapstoneGCCD.Presentation.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -116,5 +116,33 @@ namespace FinalCapstoneGCCD.Controllers
         {
             return db.Cars.Count(e => e.CarId == id) > 0;
         }
+        
+        public List<Car> GetCarsApi(int? id = null, string make = null, string model = null, int? year = 0, string color = null)
+        {
+            var cars = db.Cars.AsQueryable();
+            if (id.HasValue)
+            {
+                cars = cars.Where(x => x.CarId == id.Value);
+            }
+            if (string.IsNullOrWhiteSpace(make))
+            {
+                cars = cars.Where(x => x.Make.Contains(make));
+            }
+            if (string.IsNullOrWhiteSpace(model))
+            {
+                cars = cars.Where(x => x.Model.Contains(model));
+            }
+            if (year.HasValue)
+            {
+                cars = cars.Where(x => x.Year == year.Value);
+            }
+            if (string.IsNullOrWhiteSpace(color))
+            {
+                cars = cars.Where(x => x.Color.Contains(color));
+            }
+            
+
+            return cars.ToList();
+        }
     }
 }

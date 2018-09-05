@@ -17,36 +17,48 @@ namespace FinalCapstoneGCCD.Presentation.Clients
         {
             _client = new RestClient(ConfigurationManager.AppSettings["CarApiBaseUrl"]);
         }
-        public async Task<Car> GetCar(string make, string model, int year, string color)
+        public async Task<ICollection<Car>> GetCar(string make, string model, int? year, string color)
         {
-            var request = new RestRequest("api/Car", Method.GET);
-            request.Parameters.Add(new Parameter()
+            var request = new RestRequest("api/Cars", Method.GET);
+            if (!string.IsNullOrWhiteSpace(make))
             {
-                Name = "make",
-                Type = ParameterType.QueryString,
-                Value = make
-            });
-            request.Parameters.Add(new Parameter()
+                request.Parameters.Add(new Parameter()
+                {
+                    Name = "make",
+                    Type = ParameterType.QueryString,
+                    Value = make
+                });
+            }
+            if (!string.IsNullOrWhiteSpace(model))
             {
-                Name = "model",
-                Type = ParameterType.QueryString,
-                Value = model
-            });
-            request.Parameters.Add(new Parameter()
+                request.Parameters.Add(new Parameter()
+                {
+                    Name = "model",
+                    Type = ParameterType.QueryString,
+                    Value = model
+                });
+            }
+            if (year.HasValue)
             {
-                Name = "year",
-                Type = ParameterType.QueryString,
-                Value = year
-            });
-            request.Parameters.Add(new Parameter()
+                request.Parameters.Add(new Parameter()
+                {
+                    Name = "year",
+                    Type = ParameterType.QueryString,
+                    Value = year
+                });
+            }
+            if (!string.IsNullOrWhiteSpace(color))
             {
-                Name = "color",
-                Type = ParameterType.QueryString,
-                Value = color
-            });
+                request.Parameters.Add(new Parameter()
+                {
+                    Name = "color",
+                    Type = ParameterType.QueryString,
+                    Value = color
+                });
+            }
 
             var response = await _client.ExecuteTaskAsync(request);
-            return JsonConvert.DeserializeObject<Car>(response.Content);
+            return JsonConvert.DeserializeObject<ICollection<Car>>(response.Content);
         }
     }
 }
