@@ -44,6 +44,22 @@ namespace FinalCapstoneGCCD.Data
                 Year = 1985,
                 Color = "Nebular"
             });
+            context.Cars.Add(new Car()
+            {
+                CarId = 05,
+                Make = "Nordic Motors",
+                Model = "Tanngrisnir",
+                Year = 470,
+                Color = "White as Teeth"
+            });
+            context.Cars.Add(new Car()
+            {
+                CarId = 06,
+                Make = "Marolet",
+                Model = "Belugalia",
+                Year = -855,
+                Color = "White as Teeth"
+            });
             base.Seed(context);
             context.SaveChanges();
         }
