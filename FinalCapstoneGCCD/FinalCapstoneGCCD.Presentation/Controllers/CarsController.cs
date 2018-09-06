@@ -21,10 +21,17 @@ namespace FinalCapstoneGCCD.Presentation.Controllers
         {
             return View();
         }
-        public async Task<ActionResult> Results(string make = null, string model = null, int year = 0, string color = null)
+        [HttpPost]
+        public async Task<ActionResult> SearchCars(string make = null, string model = null, int? year = null, string color = null)
         {
             var cars = await _carClient.GetCar(make, model, year, color);
-            return View();
+            var mappedCars = cars.Select(t => new CarViewModel {
+                Make = t.Make,
+                Model = t.Model,
+                Year = t.Year,
+                Color = t.Color
+            }).ToList();
+            return View("Results", mappedCars);
         }
     }
 }

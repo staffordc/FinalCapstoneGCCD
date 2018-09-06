@@ -58,7 +58,7 @@ namespace FinalCapstoneGCCD.Presentation.Clients
             }
 
             var response = await _client.ExecuteTaskAsync(request);
-            return JsonConvert.DeserializeObject<ICollection<Car>>(response.Content);
+            return JsonConvert.DeserializeObject<List<Car>>(response.Content);
         }
     }
 }
